@@ -1,0 +1,4 @@
+#!/bin/sh
+#shell independent stderr redirect, useful when you execute external programs
+#in some scripts (ex PHP)
+$@ </dev/stdin 2>&1
