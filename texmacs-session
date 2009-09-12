@@ -1,0 +1,3 @@
+#!/bin/sh
+#open maxima in texmacs directly
+exec texmacs -x "(begin (lazy-plugin-force) (make-session \"$1\" \"default\"))"
