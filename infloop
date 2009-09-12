@@ -1,0 +1,6 @@
+#!/bin/sh
+#I used this to repeat music playback when I didnt have X
+while true
+do
+$@
+done
