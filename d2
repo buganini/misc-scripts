@@ -1,0 +1,2 @@
+#!/bin/sh
+mencoder $1 -o $2 -ovc xvid -xvidencopts pass=1:bitrate=400:max_bframes=0 -vf-add scale=-3:192,crop=320 -oac mp3lame -lameopts mode=0:preset=128
