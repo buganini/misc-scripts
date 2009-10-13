@@ -1,0 +1,4 @@
+#!/usr/local/bin/expect
+spawn [lindex $argv 0] [lindex $argv 1] [lindex $argv 2]
+interact timeout 30 { send -null }
+exit
