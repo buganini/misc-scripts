@@ -3,6 +3,12 @@
 #sudoer:
 #username	ALL=NOPASSWD:/usr/local/bin/radeontool light off
 #username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=NONE
+
+#disable LCD
 sudo /usr/local/bin/radeontool light off
+
+#disable power button
 sudo /sbin/sysctl hw.acpi.power_button_state=NONE
+
+#pause firefox to save cpu clock
 killall -STOP firefox-bin
