@@ -1,0 +1,8 @@
+#!/bin/sh
+#works with /usr/local/bin/xlock -mode blank -startCmd lock -endCmd unlock
+#sudoer:
+#username	ALL=NOPASSWD:/usr/local/bin/radeontool light on
+#username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=S5
+sudo /usr/local/bin/radeontool light on
+sudo /sbin/sysctl hw.acpi.power_button_state=S5
+killall -CONT firefox-bin
