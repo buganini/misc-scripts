@@ -6,3 +6,5 @@
 sudo /usr/local/bin/radeontool light on
 sudo /sbin/sysctl hw.acpi.power_button_state=S5
 killall -CONT firefox-bin
+killall -CONT npviewer.bin
+
