@@ -6,6 +6,7 @@
 
 #disable LCD
 sudo /usr/local/bin/radeontool light off
+xset dpms force off
 
 #disable power button
 sudo /sbin/sysctl hw.acpi.power_button_state=NONE
