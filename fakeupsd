@@ -6,4 +6,4 @@ tolerance=4200
 ping -c 1 ${checkpoint} && touch ${pidfile}
 last=`stat -f %m ${pidfile}`
 now=`date +%s`
-expr ${now} - ${last} '>=' ${tolerance} && shutdown -h now
+expr ${now} - ${last} '>=' ${tolerance} && shutdown -h now "router down"
