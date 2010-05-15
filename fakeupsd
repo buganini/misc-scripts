@@ -7,10 +7,12 @@ tolerance=4200
 ping -c 1 ${checkpoint} > /dev/null && touch ${pidfile}
 last=`stat -f %m ${pidfile}`
 now=`date +%s`
-expr ${now} - ${last} '>=' ${tolerance} > /dev/null || exit
+expr ${now} - ${last} '>=' ${tolerance} > /dev/null
+if [ $? = 1 ]; then
+exit
+fi
 
 #customized procedure here
 echo router down
 logger "router down"
 shutdown -h now "router down"
-
