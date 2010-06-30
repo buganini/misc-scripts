@@ -5,7 +5,7 @@ sub cmd_derder{
 	my $line;
 	for my $n ($chan->nicks()){
 		if($n->{nick} eq $serv->{nick}){ next; }
-		$line=$n->{nick}.': ㄉㄉ';
+		$line=$n->{nick}.': '.$param;
 		Irssi::signal_emit('send text', $line,  $serv, $serv->window_item_find($chan->{name}));
 		Irssi::signal_stop();
 	}
