@@ -11,5 +11,5 @@ xset dpms 0 0 10
 sudo /sbin/sysctl hw.acpi.power_button_state=NONE
 
 #pause to save cpu clock
-killall -STOP firefox-bin npviewer.bin
+#killall -STOP firefox-bin npviewer.bin
 

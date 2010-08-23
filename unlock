@@ -3,5 +3,5 @@
 #sudoer:
 #username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=S5
 sudo /sbin/sysctl hw.acpi.power_button_state=S5
-xset dpms 0 0 0
-killall -CONT firefox-bin npviewer.bin
+xset -dpms
+#killall -CONT firefox-bin npviewer.bin
