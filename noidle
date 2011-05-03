@@ -1,4 +1,11 @@
 #!/usr/bin/env expect
+
+trap {
+ set rows [stty rows]
+ set cols [stty columns]
+ stty rows $rows columns $cols < $spawn_out(slave,name)
+} WINCH
+
 eval spawn bug5 -p -- [lindex $argv 1] [lindex $argv 2] [lindex $argv 3]  [lindex $argv 4] [lindex $argv 5]
 interact timeout 30 { send -null }
 exit
