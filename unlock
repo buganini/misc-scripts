@@ -1,7 +1,0 @@
-#!/bin/sh
-#works with /usr/local/bin/xlock -mode blank -startCmd lock -endCmd unlock
-#sudoer:
-#username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=S5
-sudo /sbin/sysctl hw.acpi.power_button_state=S5
-xset -dpms
-#killall -CONT firefox-bin npviewer.bin

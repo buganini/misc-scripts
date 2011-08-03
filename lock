@@ -1,15 +1,26 @@
 #!/bin/sh
-#work with /usr/local/bin/xlock -mode blank -startCmd lock -endCmd unlock
 #sudoer:
 #username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=NONE
+#username	ALL=NOPASSWD:/sbin/sysctl hw.acpi.power_button_state=S5
 
-#disable LCD
-xset +dpms
-xset dpms 0 0 10
+case "$1" in
+start)
+	#disable lcd
+	xset +dpms
+	xset dpms 0 0 10
 
-#disable power button
-sudo /sbin/sysctl hw.acpi.power_button_state=NONE
+	#disable power button
+	sudo /sbin/sysctl hw.acpi.power_button_state=NONE
 
-#pause to save cpu clock
-#killall -STOP firefox-bin npviewer.bin
-
+	#pause to save cpu clock
+	#killall -STOP firefox-bin npviewer.bin
+	;;
+end)
+	sudo /sbin/sysctl hw.acpi.power_button_state=S5
+	xset -dpms
+	#killall -CONT firefox-bin npviewer.bin
+	;;
+*)
+	/usr/local/bin/xlock -mode blank -startCmd "'$0' start" -endCmd "'$0' end"
+	;;
+esac
