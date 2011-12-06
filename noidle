@@ -6,6 +6,7 @@ trap {
  stty rows $rows columns $cols < $spawn_out(slave,name)
 } WINCH
 
+puts "\033]0;[lindex $argv [expr [llength $argv] - 1]]\033\\"
 eval spawn bug5 -up -- [lindex $argv 0] [lindex $argv 1] [lindex $argv 2] [lindex $argv 3]  [lindex $argv 4] [lindex $argv 5]
 interact timeout 30 { send -null }
 exit
