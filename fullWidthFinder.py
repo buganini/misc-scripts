@@ -14,7 +14,7 @@ for f in files:
 	fp=open(f)
 	for l in fp:
 		c.conv(l)
-		info=c.info()
-		if info["full"]+info["ambi"]>0:
+		info=c.counter()
+		if info["FULL"]+info["AMBI"]>0:
 			print f, l.rstrip()
 	fp.close()
