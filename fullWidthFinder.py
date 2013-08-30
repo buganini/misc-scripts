@@ -13,6 +13,7 @@ for root, dirnames, filenames in os.walk('.'):
 for f in files:
 	fp=open(f)
 	for l in fp:
+		c.counter_reset()
 		c.conv(l)
 		info=c.counter()
 		if info["FULL"]+info["AMBI"]>0:
