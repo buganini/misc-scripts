@@ -15,18 +15,23 @@ for i, part in enumerate(parts):
 	parts[i][0]=sz*bs
 	parts[i]=(parts[i][0], parts[i][1])
 
-romfile=open(sys.argv[1], "wb")
+total=0
+romfile=open(sys.argv[1]+".bin", "wb")
 for sz, imgfile in parts:
+	total+=sz
 	if os.path.exists(imgfile):
 		img=open(imgfile).read()
 		romfile.write(img)
 		print imgfile, len(img)
 		rest=sz-len(img)
+		if rest<0:
+			print "ERROR"
+			sys.exit(1)
 	else:
 		print imgfile, "(SKIPPED)"
 		rest=sz
 	if rest>0:
 		print "fill", rest
 		romfile.write(init*rest)
-
 romfile.close()
+print "Total:", total
